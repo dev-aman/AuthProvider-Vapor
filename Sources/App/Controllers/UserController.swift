@@ -11,9 +11,6 @@ import Vapor
 struct UserController: RouteCollection {
     
     func boot(routes: RoutesBuilder) throws {
-        // localhost:8080/api/v1/users POST
-        // localhost:8080/api/v1/users GET
-        // localhost:8080/api/v1/users/828093128 GET
         let userRoutes = routes.grouped("api", "v1")
         userRoutes.post("users", use: createHandler)
         userRoutes.get("users", use: getAllUsers)

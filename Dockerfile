@@ -15,10 +15,12 @@ RUN swift package resolve
 COPY . .
 
 # Compile with optimizations
+RUN echo "swift build start"
 RUN swift build \
 	--enable-test-discovery \
 	-c release \
 	-Xswiftc -g
+RUN echo "swift build end"
 
 # ================================
 # Run image

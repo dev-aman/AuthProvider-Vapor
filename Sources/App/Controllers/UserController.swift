@@ -12,7 +12,7 @@ struct UserController: RouteCollection {
     
     func boot(routes: RoutesBuilder) throws {
         let userRoutes = routes.grouped("api", "v1")
-        userRoutes.post("users", use: createHandler)
+        userRoutes.grouped(CustomMiddleware()).post("users", use: createHandler)
         userRoutes.get("users", use: getAllUsers)
         userRoutes.get("users", ":id", use: getUser)
         userRoutes.get("user", ":username", use: getUserForUserName)

@@ -11,7 +11,7 @@ import Vapor
 final class User: Content, Model {
     static let schema = "users"
     
-    @ID(key: "id")
+    @ID(key: .id)
     var id: UUID?
     
     @Field(key: "name")
@@ -19,6 +19,12 @@ final class User: Content, Model {
     
     @Field(key: "username")
     var username: String
+    
+    @Children(for: \.$user)
+    var notes: [Note]
+    
+//    @Children(for: \.$user)
+//    var todos: [Todo]
     
     @Timestamp(key: "created_at", on: .create)
     var createdAt: Date?

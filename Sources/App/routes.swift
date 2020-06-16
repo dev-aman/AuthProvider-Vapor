@@ -12,4 +12,9 @@ func routes(_ app: Application) throws {
     
     try app.register(collection: HealthCheckController())
     try app.register(collection: UserController())
+    try app.register(collection: FPSController())
+    // new code explain this
+    try app.register(collection: NoteController())
+    try app.register(collection: TagController())
+
 }
